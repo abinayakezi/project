@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+    <!--Inline css-->
+    <div style="background-color:crimson; width: 100px; height: 100px;"> Div 1 </div>
+    <div class="boxBg"> Div 2  </div>
+    <div>Div 3</div>
+    <div>
+        <p> P1</p>
+        <p  class="boxBg"> P2</p>
+        <p> P3</p>
+
+    </div>
+    <!--Embedded css-->
+    <style>
+        /*Tag selector */
+        div{
+            background-color: darkcyan;
+            width: 150px;
+            height: 100px;
+            border: solid 2px greenyellow;
+        }
+        /* Universal selector*/
+
+        *{
+            margin-left: 50px;
+        }
+        /* class selector*/
+        .boxBg{
+            border: dotted 5px chocolate;
+            width: 100px;
+            height: 120px ;
+            text-align: center ;
+
+        }
+        /* idselcetor*/
+        #div3{
+            transform: rotate(250deg);
+            background-color: indigo;
+        }
+        /* psuedo selector */
+        p:hover{
+            transform: scale(2);
+            transform: rotate(120deg);
+        }
+    </style>
+</body>
+</html>
+
+

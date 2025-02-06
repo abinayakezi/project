@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"></script>
+    <title>Parking Slot System</title>
+    <style>
+        .parking-slot {
+            border: 2px solid white;
+            background-color: #d3d3d3;
+            height: 100px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+        .parking-slot.occupied {
+            background-color: green;
+        }
+        .message {
+            font-size: 1.2em;
+            font-weight: bold;
+            margin-top: 20px;
+        }
+    </style>
+</head>
+<body onload="checkSession()">
+
+    <script>
+        function checkSession(){
+            let user = localStorage.getItem('User') || "";
+           // localStorage.setItem('User', "Admin");
+            //localStorage.removeItem('User')
+            if(user == ""){
+                window.location.href = "login.html";
+            }
+        }
+    </script>
+    <h1 class="text-center text-decoration-underline"><i>Sky Parkings</i></h1>
+
+    <!-- Entry Form -->
+    <div class="container mt-4">
+        <div class="row">
+            <div class="col">
+                <select class="form-select" id="slotSelect">
+                    <option value="" selected>Select a slot</option>
+                    <option value="1">Slot 1</option>
+                    <option value="2">Slot 2</option>
+                    <option value="3">Slot 3</option>
+                    <option value="4">Slot 4</option>
+                    <option value="5">Slot 5</option>
+                    <option value="6">Slot 6</option>
+                    <option value="7">Slot 7</option>
+                    <option value="8">Slot 8</option>
+                    <option value="9">Slot 9</option>
+                    <option value="10">Slot 10</option>
+                </select>
+                <div class="input-group my-3">
+                    <input type="text" class="form-control" id="vehicleNoEntry" placeholder="Enter Vehicle No">
+                </div>
+                <button type="button" class="btn btn-primary" id="entryBtn">Click to Entry</button>
+                <p class="message text-danger" id="entryMessage"></p>
+            </div>
+        </div>
+    </div>
+
+    <!-- Parking Slots -->
+    <div class="container mt-4">
+        <div class="row">
+            <!-- Create 10 parking slots -->
+            <div class="col-2 parking-slot" id="slot1"><h1>1</h1></div>
+            <div class="col-2 parking-slot" id="slot2"><h1>2</h1></div>
+            <div class="col-2 parking-slot" id="slot3"><h1>3</h1></div>
+            <div class="col-2 parking-slot" id="slot4"><h1>4</h1></div>
+            <div class="col-2 parking-slot" id="slot5"><h1>5</h1></div>
+        </div>
+        <div class="row mt-2">
+            <div class="col-2 parking-slot" id="slot6"><h1>6</h1></div>
+            <div class="col-2 parking-slot" id="slot7"><h1>7</h1></div>
+            <div class="col-2 parking-slot" id="slot8"><h1>8</h1></div>
+            <div class="col-2 parking-slot" id="slot9"><h1>9</h1></div>
+            <div class="col-2 parking-slot" id="slot10"><h1>10</h1></div>
+        </div>
+    </div>
+
+    <!-- Exit Form -->
+    <div class="container mt-4">
+        <div class="row">
+            <div class="col">
+                <div class="input-group mb-3">
+                    <input type="text" class="form-control" id="vehicleNoExit" placeholder="Enter Vehicle No">
+                </div>
+                <button type="button" class="btn btn-danger" id="exitBtn">Click to Exit</button>
+                <p class="message text-danger" id="exitMessage"></p>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // Initialize parking slots (all slots are empty)
+        const parkingSlots = [null, null, null, null, null, null, null, null, null, null];
+
+        // Function to handle entry
+        function handleEntry() {
+            const slot = document.getElementById('slotSelect').value;
+            const vehicleNo = document.getElementById('vehicleNoEntry').value;
+            const message = document.getElementById('entryMessage');
+    
+            // Validate inputs
+            if (!slot || !vehicleNo) {
+                message.textContent = 'Please select a slot and enter vehicle number!';
+                return;
+            }
+    
+            const slotIndex = parseInt(slot) - 1; // Convert to array index
+    
+            // Check if the slot is already booked
+            if (parkingSlots[slotIndex]) {
+                message.textContent = `Slot ${slot} is already booked! Please select another slot.`;
+                return;
+            }
+    
+            // Book the slot
+            parkingSlots[slotIndex] = vehicleNo;
+            const slotDiv = document.getElementById(`slot${slot}`);
+            slotDiv.style.backgroundColor = 'green'; // Change background to green
+            message.textContent = `Slot ${slot} is successfully booked for vehicle ${vehicleNo}!`;
+        }
+    
+        // Function to handle exit
+        function handleExit() {
+            const vehicleNo = document.getElementById('vehicleNoExit').value;
+            const message = document.getElementById('exitMessage');
+    
+            // Validate input
+            if (!vehicleNo) {
+                message.textContent = 'Please enter a vehicle number!';
+                return;
+            }
+    
+            // Find the slot with the vehicle number
+            const slotIndex = parkingSlots.findIndex(v => v === vehicleNo);
+    
+            // Check if the vehicle number is valid
+            if (slotIndex === -1) {
+                message.textContent = 'Vehicle number mismatch! Please enter the correct number.';
+                return;
+            }
+    
+            // Free the slot
+            parkingSlots[slotIndex] = null;
+            const slotDiv = document.getElementById(`slot${slotIndex + 1}`);
+            slotDiv.style.backgroundColor = 'gray'; // Reset background to gray
+            message.textContent = `Vehicle ${vehicleNo} has exited. Slot ${slotIndex + 1} is now available.`;
+        }
+    
+        // Add event listeners for buttons
+        document.getElementById('entryBtn').addEventListener('click', handleEntry);
+        document.getElementById('exitBtn').addEventListener('click', handleExit);
+    </script>
+    
+</body>
+</html>

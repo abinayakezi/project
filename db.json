@@ -1,0 +1,34 @@
+{
+  "users": [
+    {
+      "id": "2",
+      "name": "Jane Smith",
+      "email": "janesmith@example.com"
+    },
+    {
+      "id": "3",
+      "name": "Sam Wilson",
+      "email": "samwilson@example.com"
+    },
+    {
+      "id": "4",
+      "name": "Sam ",
+      "email": "sam@gmail.com"
+    },
+    {
+      "id": "3d61",
+      "name": "sam",
+      "email": "john"
+    },
+    {
+      "id": "fe96",
+      "name": "hii",
+      "email": "john"
+    },
+    {
+      "id": "447a",
+      "name": "sam",
+      "email": "doe"
+    }
+  ]
+}

@@ -1,0 +1,118 @@
+ <!-- <!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>isiqfor</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM"crossorigin="anonymous"></script>
+</head>
+<body onload="timer">
+    <div id="isiqfor">
+        <div class="green"></div>
+        <div class="yellow"></div>
+        <div class="red"></div>
+        <style>
+            #isiqfor{
+                border: 10 px solid black;
+                padding: 10px 3px;
+                width: 50px;
+            }
+            #isiqfor>div{
+                width:50px;
+                height: 50px;
+                border-radius: 50%;
+                opacity: .3;    
+            }
+            .green{
+                background-color: green;
+            }
+            .yellow{
+                background-color: yellow;
+            }
+            .red{
+                background-color: red;
+            }   
+        </style>
+        
+        <script>
+            function myFun () {
+            // body... 
+            var green=document.getElementsByClassName("green")[0];
+            var red=document.getElementsByClassName("red")[0];
+            var yellow=document.getElementsByClassName("yellow")[0];
+        
+            green.style.opacity=1;
+            setTimeout(function () {
+                /* body... */
+                green.style.opacity=.3;
+                red.style.opacity=.3;
+                yellow.style.opacity=1;
+            },5000);
+        
+            setTimeout(function () {
+                /* body... */
+                green.style.opacity=.3;
+                red.style.opacity=.3;
+                yellow.style.opacity=1;
+            },5000);
+        
+            setTimeout(function () {
+                /* body... */
+                green.style.opacity=.3;
+                red.style.opacity=1;
+                yellow.style.opacity=.3;
+            },7000);
+        
+            setTimeout(function () {
+                /* body... */
+                green.style.opacity=1;
+                red.style.opacity=.3;
+                yellow.style.opacity=.3;
+            },12000); 
+        }
+        
+        var timer = setInterval(function () {
+            /* body... */
+            myFun()
+        },13000);
+         
+        </script>
+
+    </div>
+</body>
+</html> -->
+
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
+    <title>Traffic signal</title>
+</head>
+<body>
+    <div class="row mt-4">
+        <div class="col" id="NW">NW</div>
+        <div class="col" id="NE">NE</div>
+        <div class="col" id="SW">SW</div>
+        <div class="col" id="SE">SE</div>
+    </div>
+    <div class="row mt-4">
+        <div class="row" id="WT">WT</div>
+        <div class="row" id="WB">WB</div>
+        <div class="row" id="ET">ET</div>
+        <div class="row" id="EB">EB</div>
+    </div>
+    <div class="row mt-4">
+        <div class="col"><button type="button" class="btn-btn-primary" onclick="north()">NORTH</button></div> 
+        <div class="col"><button type="button" class="btn-btn-primary" onclick="south()">SOUTH</button></div> 
+        <div class="col"><button type="button" class="btn-btn-primary" onclick="West()">WEST</button></div> 
+        <div class="col"><button type="button" class="btn-btn-primary" onclick="East()">EASt</button></div> 
+
+
+
+    </div>
+</body>
+</html>

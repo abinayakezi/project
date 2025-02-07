@@ -1,0 +1,118 @@
+<!-- 10  dec 2024  -->
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Billing</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
+
+</head>
+<body>
+    <div class="container">
+        <nav class="navbar navbar-expand-lg navbar-light bg-light">
+            <div class="container-fluid">
+              <a class="navbar-brand" href="#">Logo</a>
+              <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+              </button>
+              <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                  <li class="nav-item">
+                    <a class="nav-link active" aria-current="page" href="#">Home</a>
+                  </li>
+                  <li class="nav-item">
+                    <a class="nav-link" href="#">Cart</a>
+                  </li>
+                  <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                      Categories
+                    </a>
+                    <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+                      <li><a class="dropdown-item" href="#">Men</a></li>
+                      <li><a class="dropdown-item" href="#">Women</a></li>
+                      <li><hr class="dropdown-divider"></li>
+                      <li><a class="dropdown-item" href="#">Kids</a></li>
+                    </ul>
+                  </li>
+                  <li class="nav-item">
+                    <a class="nav-link disabled" href="#" tabindex="-1" aria-disabled="true">Prime</a>
+                  </li>
+                </ul>
+                <form class="d-flex">
+                    <a class="navbar-brand" href="#">Profile</a>
+                    <button type="button" class="btn btn-primary">Logout</button>
+                  <!-- <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
+                  <button class="btn btn-outline-success" type="submit">Search</button> -->
+                </form>
+              </div>
+            </div>
+          </nav>
+          <div class="row mt-4">
+            <div class="col">Product Name</div>
+            <div class="col">Price</div>
+            <div class="col">Count</div>
+            <div class="col">Total</div>
+            <div class="col">Action</div>
+          </div>
+          <div class="row mt-4">
+            <div class="col">                
+                    <span id="pDropDown"></span>
+            </div>
+            <div class="col"><input type="text" id="pPrice" name="pPrice" class="form-control" readonly/></div>
+            <div class="col"><input type="text" id="pCount" name="pCount" class="form-control" onkeyup="calcProductTotal()"/></div>
+            <div class="col"><input type="text" id="pTotal" name="pTotal" class="form-control" disabled/></div>
+            <div class="col"><button type="button" class="btn btn-success">Add Product</button><div>
+          </div>
+          </div>
+          <div class="row mt-5">
+            <div class="col">T.shirt</div>
+            <div class="col">500</div>
+            <div class="col">2</div>
+            <div class="col">1000</div>
+            <div class="col">
+                <button type="button" class="btn btn-warning">Update</button>
+                <button type="button" class="btn btn-danger">Delete</button>
+            </div>
+    </div>
+    <script>
+      var products = [ {pName:"Shirt", pPrice: 200}, {pName:"Pant", pPrice: 500}, {pName:"Saree", pPrice: 1000}, {pName:"Salwar", pPrice: 550}, {pName:"Cap", pPrice: 50}];
+
+      function loadProductDropdown(){
+        let result = '<select class="form-select" id="pName" onChange="setPriceBydropSelect()">';
+          result += "<option>--Select--</option>";
+          for(let product of products){
+              result += "<option>" + product.pName + "</option>";
+          }
+          result += '</select>';
+          document.getElementById('pDropDown').innerHTML = result;
+          console.log(result);
+      }
+      loadProductDropdown();
+
+      function setPriceBydropSelect(){
+        let selectedpName = document.getElementById('pName').value;
+        console.log(selectedpName);
+        let filteredProduct = products.filter((product)=> product.pName == selectedpName);
+        console.log(filteredProduct);
+        if(filteredProduct.length > 0)
+        {
+          document.getElementById('pPrice').value = filteredProduct[0].pPrice;
+        }else{
+          document.getElementById('pPrice').value = "";==    
+        }   
+        calcProductTotal();     
+      }
+
+      function calcProductTotal(){
+        let pPrice = Number(document.getElementById('pPrice').value);
+        let pCount = Number(document.getElementById('pCount').value);
+        document.getElementById('pTotal').value = pPrice * pCount;
+      }
+    </script>
+    
+</body>
+</html>
+

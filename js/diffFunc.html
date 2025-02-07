@@ -1,0 +1,179 @@
+<!-- <!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Diff functions</title>
+</head>
+<body>
+    <div>
+        <h2> Predefined Functions and Type of funtions</h2>
+    </div>
+
+    <script>
+        function preDefinedFunc(){
+            alert ("Hello class ");
+
+            //preDefinedfunc () 
+
+
+
+            //innner function
+           function avg(){
+
+           }
+           function sum(){
+
+           }
+           let result=sum (v1,v3,v3)/3;
+           return result;
+        }
+        console.log(avg 10,50,60));
+        //sum(10,20,30)
+        
+        //callback functions
+           length 
+
+
+
+
+set setInterval
+set setTimeoutinner
+call back
+
+
+
+
+    
+
+    </script>
+</body>
+</html> -->
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Diff Functions</title>
+</head>
+<body>
+    <div>
+        <h2>Predefined and Type of Functions</h2>
+
+        <p id="clck"></p>
+
+        <script>
+
+
+
+           function callPreDef(){
+
+            setTimeout(()=>{              //evalo neram kalichi varanum one time execution
+                console.log("Hello");
+            },5000);
+
+            setInterval(()=>{    //never ending infinite loop brk vitu execute agum
+                document.getElementById('clck').innerHTML = new Date();
+            },1000);
+           }
+
+           callPreDef();
+
+
+           //Lambda Expression              name illama call panrathu data or function directly calling function
+           let lamb = () => { console.log("Lamb func ")};
+
+           console.log(lamb);
+           lamb();
+
+           let lambFuc = lamb;
+           console.log(lambFuc);
+           lambFuc();
+
+           let arr = [26,79,21,68,49,35];         //filtr metd in array
+           let filteredArr = arr.filter((ele)=> { return (ele%2)==0});
+           console.log(arr);
+           console.log(filteredArr);
+
+           let filArr = [];
+           for(let ele of arr){
+            if((ele%2) == 0) 
+                filArr.push(ele);
+           }
+           console.log(filArr);
+
+           let mappedArr = arr.map((ele)=>{ return ele*2});      //process all elements
+           console.log(mappedArr);
+
+
+           //Inner Function
+           function avg(v1,v2,v3){                  //not access when call outside
+
+            function sum(v1,v2,v3){
+                return v1 + v2 + v3;
+            }
+            let result = sum(v1,v2,v3)/3;
+            return result;
+           }
+
+           console.log(avg(10,50,60));
+           //sum(10,20,30);
+
+
+           //callBack Func              //function ey paramater ah calll panrathu call bk fun
+
+           let innFunc = ()=>{
+            console.log("Callback ex");
+           }
+
+           function callBk(innFuncc){
+            innFuncc();
+           }
+
+           callBk(innFunc);
+
+ //////////////  04-12-2024 //////////
+           
+           // Closure
+
+           function resetCounter(){
+            let counter = 0;                //local scope
+
+            function nextCounter(){         //global scope  inner fun aala local scope ah acces panna mudiyum
+
+                counter++;
+                console.log(counter);
+                return counter;
+
+            }
+            return nextCounter;
+           }
+
+           console.log(counter);
+           let counterIncre = resetCounter();
+           console.log(counterIncre);  //data
+           counterIncre(); 
+           counterIncre();                          //restrict scope  called closure
+           counterIncre();
+           counterIncre();
+
+           //recursive function          thanna thaane thirupi koopdrathu funtion it use alternative loop concept for do while loop illama use pananum naa try these 
+           function recurLoop(num){   //if there is no condition means it will be continious infinite loop
+            console.log(num)
+            if (num !=0){
+                num--;
+                recurLoop(num)
+            }
+           }
+           recurLoop(10);
+
+
+////////   05-12-2024  ///////////
+              // user ah active la vechirkathu the session
+
+        </script>
+    </div>
+    
+</body>
+</html>

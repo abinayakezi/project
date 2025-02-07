@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>RegEx</title>
+</head>
+<body>
+    <h2>Reg Exp</h2>
+    <p id="regResult"></p>
+    <script>
+        var result = "";
+        function regExample(){
+            let pattern = /classgf/;
+            let str = "Welcome class";
+            
+            result += pattern + " : " + str + " : "+ pattern.test(str) + '<br>';
+            pattern = /class/;
+            result += pattern + " : " + str + " : "+ pattern.test(str) + '<br>';
+            pattern = /Class/;
+            result += pattern + " : " + str + " : "+ pattern.test(str) + '<br>';
+            pattern = /Class/i;
+            result += pattern + " : " + str + " : "+ pattern.test(str) + '<br>';
+
+            pattern = new RegExp("come");
+            result += pattern + " : " + str + " : "+ pattern.test(str) + '<br>';
+
+            pattern = new RegExp("[xyza]");
+            result += pattern + " : " + str + " : "+ pattern.test(str) + '<br>';
+
+            pattern = /[^l]/g;
+            result += pattern + " : " + str + " : "+ str.match(pattern) + '<br>';
+
+            pattern = new RegExp("[a-zA-Z]");
+            str = "WELCOME CLASS";
+            result += pattern + " : " + str + " : "+ pattern.test(str) + '<br>';
+
+            pattern = new RegExp("[6-9]");
+            str = "7";
+            result += pattern + " : " + str + " : "+ pattern.test(str) + '<br>';
+
+            pattern = new RegExp("[\\d]");
+            str = "jhf8sdh";
+            result += pattern + " : " + str + " : "+ pattern.test(str) + '<br>';
+
+            pattern = new RegExp("[\\S]");
+            str = " dfgd";
+            result += pattern + " : " + str + " : "+ pattern.test(str) + '<br>';
+
+            pattern = /^[a-zA-Z0-9._-]+@[a-zA-Z]+\.[a-zA-Z]{2,6}$/;
+            str = "user@citi.com";
+            result += pattern + " : " + str + " : "+ pattern.test(str) + '<br>';
+            str = "user@c5iti.com";
+            result += pattern + " : " + str + " : "+ pattern.test(str) + '<br>';
+            str = "us$er@citi.com";
+            result += pattern + " : " + str + " : "+ pattern.test(str) + '<br>';
+            str = "userciti.com";
+            result += pattern + " : " + str + " : "+ pattern.test(str) + '<br>';
+            str = "user@citicom";
+            result += pattern + " : " + str + " : "+ pattern.test(str) + '<br>';
+            str = "user@citi.c";
+            result += pattern + " : " + str + " : "+ pattern.test(str) + '<br>';
+
+            str = "userciti.com";
+            result += pattern + " : " + str + " : "+ str.match(pattern) + '<br>';
+            str = "user@citi.com";
+            result += pattern + " : " + str + " : "+ str.match(pattern) + '<br>';
+
+            document.getElementById('regResult').innerHTML = result;
+        }
+        regExample();
+    </script>
+</body>
+</html>

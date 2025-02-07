@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
+    <title>OOPs Concepts</title>
+</head>
+<body>
+    <div class="container mt-4">
+        <h2>OOPs</h2>
+        <ol>
+            <li>Class</li>
+            <li>Object</li>
+            <li>Inheritance</li>
+            <li>Abstraction</li>
+            <li>Polymorphism</li>
+            <li>Encapsulation</li>
+            <li>Exception/Error Handling [ Try, Catch, Throw, Throws, Finally ]</li>
+        </ol>
+
+        <p>
+            Initial : all in Green
+            Entry : Slot, Vechile No -> Grey
+            Exit : Vechile No  -> Green
+        </p>
+    </div>
+    <script>
+       class axis{
+        accNo=0;
+        bal=0;
+        deposit(amt){
+            this.amt=amt;
+            this.bal+=amt;
+         try{
+            console.log(temp);
+         }catch(ex){
+            console.log("Deposit is Out of service. Please try again Later...");
+         }   
+
+         finally{
+
+         }
+         
+         console.log("Balance:"+this.bal);
+        }
+        withdraw(amt){
+            if(amt<=this.bal)
+            {
+                this.bal-=amt;
+                console.log("Balance:"+this.bal);
+            }else{
+
+                throw new Error("Kaasu ilapa...");
+            }
+
+        }
+       }
+       let vaan=new axis();
+       let mathi=new axis();
+       vaan.accNo=123;
+       vaan.bal=5000;
+       mathi.accNo=789;
+       mathi.bal=6000;
+       vaan.deposit(500);
+       vaan.withdraw(600);
+       mathi.withdraw(800);
+       mathi.deposit(70);
+
+        class AxisLoan extends axis{
+        loanBal=0;
+        applyLoan(amt){
+            this.loanBal=amt;
+            console.log(this.accNo+"Applied Loan for amt"+amt);
+        }
+        payEmi(amt){
+           this.loanBal-=amt;
+           console.log(this.accNo+"Balance to pay"+this.loanBal);
+        }
+        
+       }
+       let vaanLoan=new AxisLoan();
+       vaanLoan.accNo=3456789;
+       vaanLoan.bal=5000;
+       vaanLoan.applyLoan(8000);
+       vaanLoan.deposit(200);
+       try{
+        applyLoan(5656);
+       }catch(ex){}
+       vaanLoan.payEmi(1000);
+
+    //    interface RBI{
+    //      deposit();
+    //      withdraw();
+    //      openAcc();
+
+    //    }
+    </script>
+</body>
+</html>

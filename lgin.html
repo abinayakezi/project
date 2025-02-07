@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login</title>
+</head>
+<body style="background-color: darkgoldenrod;">
+    <!--
+        1. Inline CSS
+        2. Embedded CSS
+        3. External CSS
+    -->
+    <div>
+
+
+<h2>Login</h2>
+        <div class="box box-clr">
+            <label>Username</label> 
+            <input type="text" id="user" name="user"/>
+            <br>
+            <label>Password</label>
+            <input type="password" id="pswd" name="pswd"/>
+            <br>
+            <button type="button" id="lgBtn" onclick="validateLogin()">Login</button>
+            <br>
+            <p id="lgMsg"></p>
+        </div>
+        <script>
+            function validateLogin(){
+                let user = document.getElementById('user').value;
+                let pswd = document.getElementById('pswd').value;
+
+                if(user == "Admin" && pswd == "1234"){
+                    localStorage.setItem('User', 'Admin');
+                    window.location.href = "./parking.html";
+                }else{
+                    document.getElementById('lgMsg').innerHTML = "Invalid Username /Password";
+                }
+            }
+        </script>
+        
+    </div>
+    <style>
+        /*
+            1. Universal Selector
+            2. Tag Selector
+            3. Class Selector
+            4. ID Selector
+            5. Pseudo Selector
+
+            1.Width
+            2.Height
+            3.Background
+            4.Border
+            5.Margin
+            6.Padding
+            7.text
+            8.position
+        */
+
+        *{
+            color:rgb(237, 245, 20);
+        }
+        h2, p{
+            text-decoration: underline;
+        }
+        .box{
+            width:600px;
+            height: 300px;
+            border: solid 2px rebeccapurple;
+            padding-top:200px;
+            text-align: center;
+            margin-left:400px;
+        }
+        .box-clr{
+            color:yellow;
+        }
+        #lgBtn{
+            width:100px;
+            height: 30px;
+            border:solid 3px brown;
+            background-color: chartreuse;
+            border-radius: 5px;
+        }
+        #lgBtn:hover{
+            background-color:rgb(226, 20, 241);
+            border-style: dotted;
+        }
+
+    input{
+        width: 150px;
+        text-decoration:line-through;
+    }
+
+    #div1{
+        position:absolute;
+        left:100px;
+        top:200px;
+    }
+    #div2{
+        position:relative;
+        left:100px;
+        top:200px;
+    }
+    #div3{
+        position:fixed;
+        top:200px;
+    }
+    #div4{
+        position:fixed;
+        top:100px;
+        left:400px;
+    }
+
+    </style>
+</body>
+</html>

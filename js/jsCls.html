@@ -1,0 +1,307 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Js Class</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
+
+</head>
+<body onload="eventEx()">
+    <div class="container mt-4">
+        <div class="row mt-4">
+            <div class="col">Variables & Functions</div>
+            <div class="col">
+                <script>       
+                    let firstName="Abi";
+                    var age=20;
+                    const AADHAR=123456;
+                    let isMajor=false;
+
+                    //console.log(firstName);
+                    //console.log(age);
+                    //console.log(AADHAR);
+                    //console.log(isMajor)
+                    printDetails();
+
+                    firstNAme="Kezia";
+                    age=20;
+                    //AADHAR=67890; can not change constant
+                    isMajor=true;
+
+                    //console.log(firstName);
+                    //console.log(age);
+                    //console.log(AADHAR);
+                    //console.log(isMajor)
+                    printDetails();
+
+                    console.log(subject);
+                    //console.log(mark);
+
+                    // Hoisting
+                    var subject="JS";  // is a global scope declaration (var subjec;) t+ definition( subject = js;) it spliltd var and definied avoid errors but see before the define
+                    let mark ='50'; 
+
+                    console.log(subject);
+                    console.log(mark);
+
+                    //function create once and use it many times
+                    // if it is not call it will be there , dont revoke
+                    // program code size will reduce  and file size also reduce and netwrk speed will increase
+                    function printDetails(){
+                        console.log(firstName);
+                        console.log(age);
+                        console.log(AADHAR);
+                        console.log(isMajor)
+                    }
+                </script>
+            </div>
+        </div>
+        <div class="row mt-4">
+            <div class="col">Functions</div>
+            <div class="col">
+                <script>
+                    //function call
+                    add(20,60);
+                    add(50,20);
+                    console.log(sub(40,20));
+                    sayHello();
+                    let tkMsg=getToken();
+                    console.log(tkMsg);
+                    let hm=sayHello(); //void method
+                    console.log(hm); // not retun function are void function so its is undefined
+
+                    //function definition
+
+                    //WITH PARAMETER WITHOUT RETURN --
+                    function add(v1,v2){
+                        let result=v1+v2;
+                        console.log("sum value is :" + result);
+                    }
+
+                    //WITH PARAMETER WITH RETURN--
+                    function sub(v1,v2){
+                        let result=v1-v2;
+                        return result;
+                    }
+
+                    //WITHOUT PARAMETER WITHOUT RETURN--
+                    function sayHello(){
+                        console.log("Hello frnds...");
+                    }
+
+                    //WITHOUT PARAMETER WITH RETURN--
+                    function getToken(){
+                        return "Your token num is" + 10;
+                    }
+                </script>
+            </div>
+        </div>
+        <div class="row mt-4">
+            <div class="col"> Events </div>
+            <div class="col">
+                <ul>
+                    <li>OnClick</li>
+                    <li>OnMouseOver</li>
+                    <li>OnMouseOut</li>
+                    <li>OnChange</li>
+                    <li>OnLoad</li>
+                    <li>OnKeyPress/OnKeyDown/OnKeyUp</li>
+                    <li>OnSubmit</li>
+                </ul>
+                <div>
+                    <img src="/FE/assets/doll.jpeg" onclick="eventEx()"/><br>
+                    <input type="text" onkeyup="printTxBxData()" id="evtTxData"/><br>
+                    <select id="stateVal" onchange="printSelectBoxData()">
+                        <option>--Select</option>
+                        <optio>TN</optio>
+                        <option>AP</option>
+                        <option>KL</option>
+                        <option>KA</option>
+                    </select>
+                </div>
+                <script>
+                    function eventEx(){
+                        alert("Event called...");
+                    }
+                    function printTxtBxData(){
+                        let txtData = document.getElementById('evtTxtData').value;
+                        console.log(txtData);
+                    }
+                    function printSelectBoxData(){
+                        let sltBxData = document.getElementById("stateVal").value;
+                        
+                        console.log(sltBxData);
+                    }
+                </script>
+            </div>
+        </div>
+        <div class="row mt-4">
+            <div class="col">
+                Document Object<br>
+
+                <ol class="txtClr">
+                    <li>getElementById</li>
+                    <li>getElementsByName</li>
+                    <li>getElementsByTagName</li>
+                    <li>getElementsByClassName</li>
+                </ol>
+            </div>
+            <div class="col">
+                
+                <input type="text" class="form-control txtClr" id="user" placeholder="User"/><br>
+                <input type="password" class="form-control" id="pswd" placeholder="Password"/><br>
+                <input type="radio" name="gender" value="Male" class="form-check-input"/>Male
+                <input type="radio" name="gender" value="Female" class="form-check-input"/>Female <br>
+                <buttun type="button" class="btn btn-primary" onclick="getLgnUser()">Login</buttun>
+
+                <style>
+                    .txtClr{
+                        color:red;
+                    }
+                </style>
+                <script>
+                
+                    function getLgnUser(){
+                        let user = document.getElementById('user').value;
+                        let pswd = document.getElementById('pswd').value;
+
+                        console.log(user + " " + pswd);
+
+                        console.log(document.getElementsByTagName('input'));
+                        console.log(document.getElementsByClassName('txtClr'));
+                        console.log(document.getElementsByName('gender'));
+                    }
+                </script>
+            </div>
+        </div>
+        <div class="row mt-4">
+            <div class="col">Calculator</div>
+            <div class="col">
+                <input type="number" name="num1" id="num1" placeholder="Number 1" class="form-control"/><br>
+                <input type="number" name="num2" id="num2" placeholder="Number 2" class="form-control"/><br>
+                <input type="text" id="calcMulDivResult" class="form-control" placeholder="Result" disabled/><br>
+                <p id="calcMulDivResult2"></p><br>
+                <button type="button" class="btn btn-success" onclick="calcMulti()">MULTI</button>
+                <button type="button" class="btn btn-success" onclick="calcDiv()">DIV</button>
+                
+                <script>
+                    function calcMulti(){
+                        let num1 = Number(document.getElementById('num3').value);
+                        let num2 = Number(document.getElementById('num4').value);
+                        let result = num1 * num2;
+                        document.getElementById('calcMulDivResult').value = result;
+                    }
+                    function calcDiv(){
+                        let num1 = Number(document.getElementById('num3').value);
+                        let num2 = Number(document.getElementById('num4').value);
+                        let result = num1 / num2;
+                        document.getElementById('calcMulDivResult2').innerHTML = "The Result is " + result;
+                    }
+                </script>
+            </div>
+        </div>
+        <div class="row mt-4">
+            <div class="col">
+                Conditions <br>
+                <ul>
+                    <li>If</li>
+                    <li>If-else</li>
+                    <li>If-else Ladder</li>
+                    <li>Nested If</li>
+                    <li>Switch</li>
+                </ul>
+            </div>
+            <div class="col">
+                <input type="number" id="ageCdn" name="ageCdn" class="form-control" onkeyup="conditionsEx()" placeholder="Enter the Age"/>
+                
+                <p id="ageCdnResult"></p>
+                <script>
+                    function conditionsEx(){
+
+                        let age = Number(document.getElementById('ageCdn').value);
+                        let result = "";
+                        // + - * / % > < >= <= == != && || !
+                        if(age > 18){
+                            if(age > 60)
+                                result = "Senior Citizen";
+                            else
+                                result = "You're Major";
+                        }else if(age > 10){
+                            result = "Minor";
+                        }else if(age > 5){
+                            result = "Kid";
+                        }else if(age > 0){
+                            result = "Kolanthai";
+                        }else{
+                            result = "Porakave ila";
+                        }
+                        document.getElementById('ageCdnResult').innerHTML = result;
+                    }
+
+
+                </script>
+            </div>
+            <div class="col">
+                Is Spl Char?
+                <select id="splCdn" class="form-select">
+                    <option>Yes</option>
+                    <option>No</option>
+                </select>
+                <button type="button" class="btn btn-warning" onclick="checkSplCdn()">Check Criteria</button>
+                <p id="splCdnMsg"></p>
+                <script>
+                    function checkSplCdn(){
+                        let splCdn = document.getElementById('splCdn').value;
+                        let age = Number(document.getElementById('ageCdn').value);
+                        let result = "";
+                        /*
+                        AND         OR      NOT
+                        0 0 0       0 0 0   0 1
+                        0 1 0       0 1 1   1 0
+                        1 0 0       1 0 1
+                        1 1 1       1 1 1
+
+                        */
+                        if(splCdn == "Yes" && age > 60){
+                            result = "Senior Citizen with Challenge";
+                        }else if( splCdn == "No" && age > 60){
+                            result = "Senior Citizen without Challenge"
+                        }else if( splCdn == "Yes"){
+                            result = "With Challenge"
+                        }else{
+                            result = "Without Challenge"
+                        }
+                        document.getElementById('splCdnMsg').innerHTML = result;
+                    }
+                </script>
+            </div>
+        </div>
+        <div class="row mt-4">
+            <div class="col">Conditions Task</div>
+            <div class="col">
+                <ol>
+                    <li>Get 2 numbers from user and print the greatest number.</li>
+                    <li>Get a number from user and print whether it is odd or even.</li>
+                    <li>Get a bill amount from user, apply a discount of 10% when the bill is more than 1000Rs. </li>
+                    <li>Day 2</li>
+                    <li>Apply 5% of Hike to the employee if the year if exp is more than 3 years and salary is below 25K.</li>
+                    <li>Decide to allow a student to write exam only when the attendance is more than 75%. Get Total no of classes and attended classes from user</li>
+                    <li>Print the Grade based on the mark. 90-80(A), 80-70(B) 70-60(C) 60-50(D) below 50(F)</li>
+                    <li>Get 2 digit number from user and sum the digits and neutrolize into single digit</li>
+                    <li>Reverse a 3 digit number</li>
+                </ol>
+            </div>
+        </div>
+    </div>
+    
+</body>
+</html>
+
+            </div>
+        </div>
+    </div>
+    
+</body>
+</html>

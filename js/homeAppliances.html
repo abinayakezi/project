@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Home App</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"></script>
+
+</head>
+<body>
+    <div class="container mt-4">
+        
+        <div class="row mt-4">
+            <h2>Home Products</h2>
+            <div class="row mt-4">
+                <div class="col"> <div id="lightDiv"></div> </div>
+            </div>
+            <div class="row mt-4">
+                <div class="col"> <div id="fan1Div"></div> </div>
+                <div class="col"> <div id="fan2Div"></div> </div>
+            </div>
+            <div class="row mt-4">
+                <div class="col"> <div id="tvDiv"></div> </div>
+            </div>
+        </div>
+        <div class="row mt-4">
+            <div class="col"><button type="button" class="btn btn-primary" onclick="lightSwitch()">Light</button></div>
+            <div class="col"><button type="button" class="btn btn-primary" onclick="fan1Switch()"> Fan 1</button></div>
+            <div class="col"><button type="button" class="btn btn-primary" onclick="fan2Switch()"> Fan 2</button></div>
+            <div class="col"><button type="button" class="btn btn-primary" onclick="tvSwitch()"> TV</button></div>
+            <div class="col"><button type="button" class="btn-btn-primary" onclick="mainline()">Main Line</button></div>
+        </div>
+    </div>
+    <script>
+        var light;
+        var fan1;
+        var fan2;
+        var tv;
+        var isLightOn = false;
+        var isfan1on= false;
+        var isfan2on= false;
+        var istvon= false;
+        var mainline= false;
+
+        function getInputs(){
+            light = document.getElementById('lightDiv');
+            fan1 = document.getElementById('fan1Div');
+            fan2 = document.getElementById('fan2Div');
+            tv = document.getElementById('tvDiv');
+            mainline=document.getElementById('mainlineDiv');
+        }
+        getInputs();
+        function lightSwitch(){
+            if (mainlineon){
+                
+            }
+            if(isLightOn ){
+                light.style.backgroundColor = "grey";
+                isLightOn = false;
+            }else{
+                light.style.backgroundColor = "green";
+                isLightOn = true;
+            }
+            
+        }
+        getInputs();
+        function fan1Switch(){
+            if(isfan1on){
+                fan1.style.backgroundColor = "red";
+                isfan1on = false;
+            }else{
+                fan1.style.backgroundColor = "blue";
+                isfan1on = true;
+            }
+            
+        }
+        getInputs();
+        function fan2Switch(){
+            if(isfan2on){
+                fan2.style.backgroundColor = "red";
+                isfan2on = false;
+            }else{
+                fan2.style.backgroundColor = "pink";
+                isfan2on = true;
+            }
+            
+        }
+        getInputs();
+        function tvSwitch(){
+            if(istvon){
+                tv.style.backgroundColor = "grey";
+                istvon = false;
+            }else{
+                tv.style.backgroundColor = "yellow";
+                istvon = true;
+            }
+            
+        }
+    </script>
+    <style>
+        #lightDiv{
+            width:200px;
+            height:20px;
+            background-color: grey;
+        }
+        #fan1Div, #fan2Div{
+            width:200px;
+            height: 200px;
+            border-radius: 100px;
+            background-color: red;
+            rotate: 250 deg;
+        }
+        #tvDiv{
+            width:200px;
+            height: 150px;
+            background-color: grey;                                            
+        }
+    </style>
+</body>
+</html>
+
+
+ <!-- text  box means value -->
+ <!-- a logic can perform two condition -->

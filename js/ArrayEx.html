@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Array Example</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"  integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
+</head>
+<body>
+    <div class="container mt-4">
+        <h2> Array Example</h2>
+        <p id="arrResult"></p>
+    </div>
+    <script>
+        function arrFunc(){
+            let arr = [56,89,26,47,86,23,49,76,16];
+
+            
+            let arrResult = "";
+
+            arrResult += "Array : "+ arr + "<br>";
+            arrResult += "Length : "+ arr.length + "<br>";
+            arr[2] = 76;
+            arrResult += "Array 6Idx: "+ arr[6] + "<br>";
+            arrResult += "Push 86 : "+ arr.push(86) + "<br>";
+            arrResult += "Push 46 : "+ arr.push(46) + "<br>";
+            arrResult += "Array : "+ arr + "<br>";
+            arrResult += "Pop : "+ arr.pop() + "<br>";
+            arrResult += "Array : "+ arr + "<br>";
+            arrResult += "Shift : "+ arr.shift() + "<br>";
+            arrResult += "Array : "+ arr + "<br>";
+            arrResult += "Unshift 27 : "+ arr.unshift(27) + "<br>";
+            arrResult += "Array : "+ arr + "<br>";
+            arrResult += "Includes 47 : "+ arr.includes(47) + "<br>";
+            arrResult += "Includes 100 : "+ arr.includes(100) + "<br>";
+            arrResult += "Index Of 86 : "+ arr.indexOf(86) + "<br>";
+            arrResult += "Last Index of 86 : "+ arr.lastIndexOf(86) + "<br>";
+            arrResult += "Index Of 100 : "+ arr.indexOf(100) + "<br>";
+            arrResult += "Sort : "+ arr.sort() + "<br>";
+            arrResult += "Array : "+ arr + "<br>";
+            arrResult += "Reverse : "+ arr.reverse() + "<br>";
+            arrResult += "Array : "+ arr + "<br>";
+            arrResult += "Concat [102,108,207,115] : "+ arr.concat([102,108,207,115]) + "<br>";
+            arrResult += "Array : "+ arr + "<br>";
+            console.log(arr);
+            arrResult += "Join * : "+ arr.join("*") + "<br>";
+            console.log(arr.join("*"));
+            arrResult += "Array : "+ arr + "<br>";
+            arrResult += "Fill 2, 5, 0 : "+ arr.fill(0, 2, 5) + "<br>";
+            arrResult += "Array : "+ arr + "<br>";
+            arrResult += "Slice 5, 8 : "+ arr.slice(5,8) + "<br>";
+            arrResult += "Array : "+ arr + "<br>";
+            arrResult += "To String : "+ arr.toString() + "<br>";
+            console.log(arr);
+            console.log(arr.toString());
+            arrResult += "Array : "+ arr + "<br>";
+            arrResult += "Splice Add 2Idx 500,600: "+ arr.splice(2,0,[500,600]) + "<br>";
+            arrResult += "Array : "+ arr + "<br>";
+            arrResult += "Splice Update 4Idx 555: "+ arr.splice(4,1,555) + "<br>";
+            arrResult += "Array : "+ arr + "<br>";
+            arrResult += "Splice Delete 8Idx : "+ arr.splice(8,1) + "<br>";
+            arrResult += "Array : "+ arr + "<br>";
+
+            document.getElementById('arrResult').innerHTML=arrResult;
+
+        for(let idx=0; idx<arr.length; idx++)
+        {
+            console.arr[idx]
+        }
+
+        }
+        arrFunc();
+
+        function arrPush(arr,ele){
+            arr[arr.length] = ele;
+            console.log(arr);
+            return arr.length;
+        }
+        arrFunc();
+        function arrPop(arr,ele){
+            arr
+
+        }
+
+        console.log(arrPush([20,30,40,50], 80));
+    function mulDArr(){
+        let arr2D=[[21,87,96],[987,46,78],[12,96,74]];
+        for (let outer=0; outer < arr2D.length; outer++){
+            console.log
+        }
+    }
+        
+
+
+
+    </script>
+</body>
+</html>

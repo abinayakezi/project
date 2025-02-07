@@ -1,0 +1,25 @@
+body {
+    background: linear-gradient(to right, #6a11cb, #2575fc);
+    color: white;
+    font-family: Arial, sans-serif;
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  h1 {
+    font-weight: bold;
+  }
+  #weatherResult { .lgBox{
+    width: 600px;
+    height: 400px;
+    border : solid 2px black;
+    border-radius : 20px;
+    padding: 50px 100px;
+    margin-top: 120px;
+    margin-left: 250px;
+}
+    background: rgba(255, 255, 255, 0.1);
+    padding: 20px;
+    border-radius: 10px;
+  }

@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Date Ex</title>
+</head>
+<body>
+    <div class="container mt-4">
+        <h2> SetTimeOut and SetInterval</h2>
+    </div>
+    <div class="container mt-4">
+        <h2> Date Example</h2>
+        <p id="dateResult"></p>
+
+        <script>   //Date calculation
+            function dateEx(){
+                let result="";
+                let dt=new Date();
+
+                result += "Date : " + dt + "<br>";
+                result += "Date : " + dt.getDate() + "<br>";
+                result += "Day: " + dt.getDay() + "<br>";
+                result += "Month : " + dt.getMonth() + "<br>";
+                result += "fullYear : " + dt.getFullYear() + "<br>";
+                result += "Hours : " + dt.getHours() + "<br>";
+                result += "Minutes : " + dt.getMinutes() + "<br>";
+                result += "Seconds : " + dt.getSeconds() + "<br>";
+                result += "Time : " + dt.getTime() + "<br>";
+                result += "Date.now() : " + Date.now() + "<br>";
+                result += "Date : " + dt + "<br>";
+                result += "setFullYear : " + dt.setFullYear(2025) + "<br>";
+                result += "setMonth : " + dt.setMonth(1) + "<br>";
+                result += "setDate : " + dt.setDate(16) + "<br>";
+                result += "getDay : " + dt.getDay() + "<br>";
+                result += "setHours : " + dt.setHours(5) + "<br>";
+                result += "setMinutes : " + dt.setMinutes(45) + "<br>";
+                result += "setSeconds : " + dt.setSeconds(48) + "<br>";
+                result += "setMilliseconds : " + dt.setMilliseconds(604800000) + "<br>";
+                let dtt=new Date();
+                dtt.setTime(dtt.getTime() - (24*60*60*1000*7))  
+                result +="7Days :"+dtt+"<br>";            
+                
+
+                /* 1 yr =12 months 
+                1 mon= 30,31, 28 or 29
+                1 day = 24 h
+                1 hr = 60 min
+                1 min= 60 sec
+                1 sec = 1000 ms
+                
+                
+                msperday= 24*60*60*1000 = 86400000 one day 
+                msperday= 24*60*60*1000*7 = 604800000 seven days
+
+                */
+
+
+
+
+                document.getElementById('dateResult').innerHTML=result;
+            }
+            dateEx();
+        </script>
+    </div>
+    <div>
+        <h2></h2>
+    </div>
+</body>
+</html>
